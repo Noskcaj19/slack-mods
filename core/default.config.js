@@ -1,6 +1,6 @@
 exports = {
-    // List of plugins to install with yarn
-    "plugins": [],
+    // List of mods to install with yarn
+    "mods": [],
     // List of local plugins in the $SLACK_MODS/mods/
-    "local_plugins": []
+    "localMods": []
 }
