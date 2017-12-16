@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "fs-extra": "^4.0.3",
+    "walkdir": "^0.0.12"
+  }
+}
