@@ -21,11 +21,13 @@ exports.findMods = function () {
             }
             foundMods.push({
                 name: info.name,
+                displayname: info.displayname,
                 package: mod,
                 version: info.version,
                 description: info.description,
                 author: info.author,
                 path: modpath,
+                icon: info.icon ? info.icon : null
             })
         }
     }
