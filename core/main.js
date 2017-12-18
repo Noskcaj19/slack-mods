@@ -20,17 +20,6 @@ try {
     config = require(paths.defaultConfigPath)
 }
 
-// Loading libs
-// let libpath = path.join(paths.basepath, "lib")
-// fs.readdir(libpath, (err, files) => {
-//     if (err) {
-//         console.error("Slack Mods: Loading /lib got error: ", err)
-//     }
-//     files.forEach(file => {
-//         require(path.join(libpath, file))
-//     })
-// })
-
 let foundMods = mods.findMods()
 foundMods.forEach(mod => {
     menu.addMod(mod)
