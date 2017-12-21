@@ -1,4 +1,3 @@
-console.log('foo')
 const os = require('os')
 const path = require('path')
 
