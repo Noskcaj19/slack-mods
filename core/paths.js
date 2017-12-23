@@ -9,6 +9,6 @@ if (os.platform() === 'win32') {
 }
 
 exports.basepath = basepath
-exports.defaultConfigPath = path.join(basepath, "/core/default.config.js")
+exports.defaultConfigPath = path.join(basepath, "core/default.config.js")
 exports.configPath = path.join(basepath, 'config.js')
 exports.modsPath = path.join(basepath, "mods/")

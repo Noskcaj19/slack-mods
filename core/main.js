@@ -20,6 +20,7 @@ try {
     config = require(paths.defaultConfigPath)
 }
 
+menu.injectFlextab()
 let foundMods = mods.findMods()
 foundMods.forEach(mod => {
     menu.addMod(mod)

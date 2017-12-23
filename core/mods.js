@@ -15,7 +15,12 @@ exports.findMods = function () {
         }
         let infoPath = path.join(modpath, "package.json")
         if (fs.existsSync(infoPath)) {
-            let info = JSON.parse(fs.readFileSync(infoPath, { encoding: 'utf-8' }))
+            let info
+            try {
+                info = JSON.parse(fs.readFileSync(infoPath, { encoding: 'utf-8' }))
+            } catch (e) {
+                console.error(`Error occured while fetching data for ${mod}: ${e}`)
+            }
             if (!info.keywords || !info.keywords.includes('slack-mods')) {
                 continue
             }
