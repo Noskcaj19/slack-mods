@@ -5,7 +5,7 @@ const os = require('os')
 
 const paths = require('./paths')
 const mods = require('./mods')
-const menu = require('../lib/mods_flextab')
+const menu = require('./mods_flextab')
 
 // Load config
 let configPath = paths.configPath
