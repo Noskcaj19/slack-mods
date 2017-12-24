@@ -2,6 +2,7 @@ const paths = require('./paths')
 const path = require('path')
 const fs = require('fs')
 const nodeModule = require('module')
+const extensions = require('./extensions')
 const config = require(paths.configPath)
 
 nodeModule.globalPaths.unshift(paths.modsPath)
@@ -46,9 +47,12 @@ exports.loadMods = function (foundMods) {
         console.info(`Loading ${mod.name}: ${require.resolve(mod.path)}`)
         try {
             let loadedMod = require(mod.path)
+            if (extensions.modHasExtensions(loadedMod)) {
+                extensions.loadModExtensions(loadedMod)
+            }
             mods.push(loadedMod)
         } catch (error) {
-            console.error(`Could not load ${foundPlugin.name}:`, error)
+            console.error(`Could not load ${mod.name}:`, error)
         }
     }
     return mods
