@@ -3,17 +3,17 @@ let allExtensions = [
     ["sendHandler", addSendHandler],
 ]
 
-exports.availableExtensions = allExtensions.map(x => x[0])
+export const availableExtensions = allExtensions.map(x => x[0])
 
-exports.loadModExtensions = function (mod) {
+export function loadModExtensions(mod) {
     allExtensions.forEach(([ext, fn]) => {
         if (mod[ext] === undefined) { return }
         fn(mod[ext])
     })
 }
 
-exports.modHasExtensions = function (mod) {
-    let avaliable = exports.availableExtensions
+export function modHasExtensions(mod) {
+    let avaliable = availableExtensions
     return Object.keys(mod).some((x) => avaliable.includes(x))
 }
 

@@ -8,9 +8,9 @@ const os = require('os')
 
 let basedir
 if (os.platform() === 'win32') {
-    basedir = _path.join(os.homedir(), "Slack_Mods/core/main.js")
+    basedir = _path.join(os.homedir(), "Slack_Mods/core/slack_mods.js")
 } else {
-    basedir = _path.join(os.homedir(), ".slack_mods/core/main.js")
+    basedir = _path.join(os.homedir(), ".slack_mods/core/slack_mods.js")
 }
 
 if (!fs.existsSync(basedir)) {

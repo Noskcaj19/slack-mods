@@ -1,6 +1,7 @@
 {
     "name": "slack-mods",
     "version": "0.1.0",
+    "main": "core/main.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/Noskcaj19/slack-mods"
@@ -8,7 +9,10 @@
     "author": "Noskcaj19",
     "license": "MIT",
     "dependencies": {
-        "fs-extra": "^4.0.3",
-        "walkdir": "^0.0.12"
+        "fs-extra": "^4.0.3"
+    },
+    "devDependencies": {
+        "uglifyjs-webpack-plugin": "^1.1.4",
+        "webpack": "^3.10.0"
     }
 }

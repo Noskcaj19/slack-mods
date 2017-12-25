@@ -53,7 +53,7 @@ function mod_profile_template() {
     return _mod_profile_template
 }
 
-exports.injectFlextab = function () {
+export function injectFlextab() {
     document.addEventListener("DOMContentLoaded", function () {
         $("#flex_contents").append(mods_flextab)
         TS.boot_data.special_flex_panes = [{ flex_name: 'mods', label: 'Slack Mods' }]
@@ -62,7 +62,7 @@ exports.injectFlextab = function () {
 
 //TODO: Add lazy loading
 //TODO: Add full description
-exports.addMod = function (mod) {
+export function addMod(mod) {
     document.addEventListener("DOMContentLoaded", function () {
         $("#mods_explanation").hide()
         let profile = mod_profile_template()({

@@ -1,16 +1,18 @@
-const paths = require('./paths')
-const path = require('path')
-const fs = require('fs')
-const nodeModule = require('module')
-const extensions = require('./extensions')
-const config = require(paths.configPath)
+import * as paths from './paths'
+import * as path from 'path'
+import * as fs from 'fs'
+import * as nodeModule from 'module'
+import * as extensions from './extensions'
+import * as nodeRequire from './node_require'
+// Dynamic import
+const config = nodeRequire(paths.configPath)
 
-nodeModule.globalPaths.unshift(paths.modsPath)
+nodeModule.globalPaths.unshift(paths.localModsPath)
 
-exports.findMods = function () {
+export function findMods() {
     let foundMods = []
     for (let mod of config.localMods) {
-        let modpath = path.join(paths.modsPath, mod)
+        let modpath = path.join(paths.localModsPath, mod)
         if (!fs.existsSync(modpath)) {
             continue
         }
@@ -41,12 +43,12 @@ exports.findMods = function () {
 }
 
 
-exports.loadMods = function (foundMods) {
+export function loadMods(foundMods) {
     let mods = []
     for (let mod of foundMods) {
-        console.info(`Loading ${mod.name}: ${require.resolve(mod.path)}`)
+        console.info(`Loading ${mod.name}: ${nodeRequire.resolve(mod.path)}`)
         try {
-            let loadedMod = require(mod.path)
+            let loadedMod = nodeRequire(mod.path)
             if (extensions.modHasExtensions(loadedMod)) {
                 extensions.loadModExtensions(loadedMod)
             }

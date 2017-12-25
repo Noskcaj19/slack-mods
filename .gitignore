@@ -1,6 +1,2 @@
 /node_modules/
-/bin/*
-!/bin/.gitkeep
-config.js
-/mods/*
-!/mods/.gitkeep
+/build/

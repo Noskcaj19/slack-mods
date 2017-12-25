@@ -1,14 +1,15 @@
-const os = require('os')
-const path = require('path')
+import * as os from 'os'
+import * as path from 'path'
 
-let basepath
+var basepath
 if (os.platform() === 'win32') {
     basepath = path.join(os.homedir(), "Slack_Mods")
 } else {
     basepath = path.join(os.homedir(), ".slack_mods")
 }
 
-exports.basepath = basepath
-exports.defaultConfigPath = path.join(basepath, "core/default.config.js")
-exports.configPath = path.join(basepath, 'config.js')
-exports.modsPath = path.join(basepath, "mods/")
+export { basepath }
+export const defaultConfigPath = "./default.config.js"
+export const configPath = path.join(basepath, 'config.js')
+export const localModsPath = path.join(basepath, "local_mods/")
+export const externalModsPath = path.join(basepath, "mods/")
