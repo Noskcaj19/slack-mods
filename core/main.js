@@ -9,15 +9,16 @@ import * as nodeRequire from './node_require'
 // Load config
 let configPath = paths.configPath
 if (!fs.existsSync(configPath)) {
-    fs.writeFileSync(configPath, nodeRequire(paths.defaultConfigPath).config)
+    fs.writeFileSync(configPath, require('./default.config.js').configText)
 }
 
+let config
 try {
     config = nodeRequire(configPath)
 } catch (e) {
     desktop.notice.notify({ 'title': 'Slack Mods error', 'content': 'Error parsing mods config' })
     console.error("Got error loading config: ", e)
-    config = eval(nodeRequire(paths.defaultConfigPath).config)
+    config = require('./default.config.js').config
 }
 
 menu.injectFlextab()

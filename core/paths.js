@@ -9,7 +9,6 @@ if (os.platform() === 'win32') {
 }
 
 export { basepath }
-export const defaultConfigPath = "./default.config.js"
 export const configPath = path.join(basepath, 'config.js')
 export const localModsPath = path.join(basepath, "local_mods/")
 export const externalModsPath = path.join(basepath, "mods/")
