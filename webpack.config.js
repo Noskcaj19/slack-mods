@@ -2,7 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
-module.exports = {
+let defaults = {
     entry: './core/main.js',
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -13,13 +13,19 @@ module.exports = {
             "node_modules",
         ]
     },
-    plugins: [
-        new UglifyJSPlugin({
-            uglifyOptions: {
-                compress: true,
-            }
-        })
-    ],
-    devtool: 'inline-source-map',
     target: "node",
+}
+
+if (process.env.NODE_ENV === 'production') {
+    // Production
+    module.exports = Object.assign(defaults, {
+        plugins: [
+            new UglifyJSPlugin()
+        ]
+    })
+} else {
+    // Development
+    module.exports = Object.assign(defaults, {
+        devtool: 'eval-source-map'
+    })
 }
