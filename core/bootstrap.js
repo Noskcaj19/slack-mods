@@ -1,6 +1,6 @@
-/* v0.0.1
-# Slack Mods bootstrap script, injected into Slack at launch
-*/
+/** v0.0.1
+ * Slack Mods bootstrap script, injected into Slack at launch
+ */
 
 const _path = require('path')
 const fs = require('fs')
@@ -34,5 +34,5 @@ require.extensions['.js'] = function (module, filename) {
 try {
     require(basedir)
 } catch (e) {
-    console.error('Error loading bootstrapping Slack Mods', e)
+    console.trace('Error loading bootstrapping Slack Mods')
 }
