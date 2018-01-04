@@ -8,6 +8,10 @@
     },
     "author": "Noskcaj19",
     "license": "MIT",
+    "scripts": {
+        "dev": "NODE_ENV= yarn run webpack --config webpack.config.js",
+        "production": "NODE_ENV=production yarn run webpack --config webpack.config.js"
+    },
     "dependencies": {
         "fs-extra": "^4.0.3"
     },

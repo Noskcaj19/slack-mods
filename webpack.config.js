@@ -4,10 +4,6 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 let defaults = {
     entry: './core/main.js',
-    output: {
-        path: path.resolve(__dirname, 'build'),
-        filename: 'main.js'
-    },
     resolve: {
         modules: [
             "node_modules",
@@ -21,11 +17,19 @@ if (process.env.NODE_ENV === 'production') {
     module.exports = Object.assign(defaults, {
         plugins: [
             new UglifyJSPlugin()
-        ]
+        ],
+        output: {
+            path: path.resolve(__dirname, 'build/production'),
+            filename: 'slack_mods.js'
+        }
     })
 } else {
     // Development
     module.exports = Object.assign(defaults, {
-        devtool: 'eval-source-map'
+        devtool: 'eval-source-map',
+        output: {
+            path: path.resolve(__dirname, 'build/development'),
+            filename: 'slack_mods.js'
+        }
     })
 }
